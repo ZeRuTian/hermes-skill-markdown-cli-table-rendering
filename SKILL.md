@@ -63,7 +63,8 @@ version: 1.0.0
 - East Asian Width 为 `W` 或 `F` 的字符按 2 列。
 - 普通 ASCII 按 1 列。
 - combining mark、变体选择符 `U+FE0E/U+FE0F`、零宽连接符 `U+200D` 按 0 列。
-- 常见 emoji 或 emoji+FE0F 序列按 2 列处理。
+- 含 `U+FE0F` 的 emoji-presentation 序列、含 `U+200D` 的 ZWJ emoji 序列、常见 emoji 按 2 列处理。
+- 含 `U+FE0E` 且不含 `U+FE0F/U+200D` 的 text-presentation 序列应按普通文本宽度处理；例如 `↗︎` 通常按 1 列，而 `↗️` 按 2 列。
 
 不要用：
 - `len(text)`
@@ -222,6 +223,14 @@ def pad_cell(s, width, align='left'):
 | 长文字撑爆整行 | 终端阅读体验差 | 对长文本列设最大宽度并换行 |
 | 用 `len()` 算宽度 | 中文和 emoji 会错位 | 用 Unicode display width |
 
+## 文档示例规则
+
+如果把渲染结果写进 README、Skill 示例、GitHub 仓库或其他文档：
+1. 不要手写或凭感觉拼接示例 Output。
+2. 优先用 `scripts/render_markdown_table.py` 对示例 Markdown 输入真实生成输出。
+3. 生成后做一次显示宽度校验：同一个 box table 中每一行的 terminal display width 必须相同。
+4. 如果用户指出示例没对齐，立即修正文档示例，并检查是否是复制/打包流程污染了文件内容。
+
 ## 验收清单
 
 最终输出前检查：
@@ -231,3 +240,4 @@ def pad_cell(s, width, align='left'):
 - [ ] 长文字在单元格内换行，且其他列补空白。
 - [ ] 数字列右对齐。
 - [ ] 没有建议 HTML 作为替代方案。
+- [ ] 文档中的示例 Output 是由渲染器生成或通过等宽校验的，不是手写猜测。
