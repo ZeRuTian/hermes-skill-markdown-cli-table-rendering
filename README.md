@@ -70,20 +70,17 @@ Input Markdown:
 | 进度 | 总体完成率 | 38% | ↗︎ 上升 | 仍低于计划，后续需要压缩评审和联调周期。 |
 ```
 
-Output:
+Output preview on GitHub:
 
-```text
-┌──────────┬────────────┬────────┬────────┬──────────────────────────────────────────┐
-│ 指标类别 │  指标名称  │ 当前值 │  趋势  │                   说明                   │
-├──────────┼────────────┼────────┼────────┼──────────────────────────────────────────┤
-│ 进度     │ 总体完成率 │    38% │ ↗︎ 上升 │ 仍低于计划，后续需要压缩评审和联调周期。 │
-└──────────┴────────────┴────────┴────────┴──────────────────────────────────────────┘
-```
+![Browser-safe aligned table preview](assets/browser-safe-preview.svg)
+
+The raw terminal text for this preview is saved in `examples/browser-safe-sample-output.txt`.
 
 ## Files
 
 - `SKILL.md` — Hermes skill definition and workflow
 - `scripts/render_markdown_table.py` — standalone renderer for Markdown pipe tables
+- `assets/browser-safe-preview.svg` — GitHub-safe visual preview that avoids browser code-block width issues
 - `examples/browser-safe-sample.md` — README-safe text-presentation arrow example
 - `examples/browser-safe-sample-output.txt` — generated browser-safe output
 - `examples/emoji-cli-sample.md` — emoji test input for CLI / TUI
