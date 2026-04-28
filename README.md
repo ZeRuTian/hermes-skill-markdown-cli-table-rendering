@@ -78,7 +78,7 @@ Input Markdown:
 
 Output preview on GitHub:
 
-![Browser-safe aligned complex table preview](assets/browser-safe-preview.svg)
+![Browser-safe aligned complex table preview](assets/complex-browser-safe-preview.svg)
 
 The raw terminal text for this preview is saved in `examples/browser-safe-sample-output.txt`.
 
@@ -86,7 +86,7 @@ The raw terminal text for this preview is saved in `examples/browser-safe-sample
 
 - `SKILL.md` — Hermes skill definition and workflow
 - `scripts/render_markdown_table.py` — standalone renderer for Markdown pipe tables
-- `assets/browser-safe-preview.svg` — GitHub-safe visual preview that avoids browser code-block width issues
+- `assets/complex-browser-safe-preview.svg` — GitHub-safe visual preview that avoids browser code-block width issues
 - `examples/browser-safe-sample.md` — README-safe text-presentation arrow example
 - `examples/browser-safe-sample-output.txt` — generated browser-safe output
 - `examples/emoji-cli-sample.md` — emoji test input for CLI / TUI
