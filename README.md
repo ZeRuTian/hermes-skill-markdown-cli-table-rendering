@@ -36,7 +36,8 @@ Then start a new Hermes session so the skill list is reloaded.
 After installation:
 
 ```bash
-python3 ~/.hermes/skills/productivity/markdown-cli-table-rendering/scripts/render_markdown_table.py < table.md
+SKILL=~/.hermes/skills/productivity/markdown-cli-table-rendering
+python3 "$SKILL/scripts/render_markdown_table.py" < table.md
 ```
 
 From a local clone of this repository:
@@ -48,8 +49,9 @@ python3 scripts/render_markdown_table.py < table.md
 ## Verify installation
 
 ```bash
-python3 ~/.hermes/skills/productivity/markdown-cli-table-rendering/scripts/render_markdown_table.py \
-  < ~/.hermes/skills/productivity/markdown-cli-table-rendering/examples/emoji-cli-sample.md
+SKILL=~/.hermes/skills/productivity/markdown-cli-table-rendering
+python3 "$SKILL/scripts/render_markdown_table.py" \
+  < "$SKILL/examples/emoji-cli-sample.md"
 ```
 
 You should see a Unicode box table with aligned columns.
