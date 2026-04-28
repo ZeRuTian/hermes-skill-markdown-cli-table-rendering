@@ -229,7 +229,11 @@ def pad_cell(s, width, align='left'):
 1. 不要手写或凭感觉拼接示例 Output。
 2. 优先用 `scripts/render_markdown_table.py` 对示例 Markdown 输入真实生成输出。
 3. 生成后做一次显示宽度校验：同一个 box table 中每一行的 terminal display width 必须相同。
-4. 如果用户指出示例没对齐，立即修正文档示例，并检查是否是复制/打包流程污染了文件内容。
+4. 示例应覆盖真实边界，而不是只放一行玩具数据；至少包含多列、多行、中文、数字右对齐、趋势符号、风险/状态列和长说明换行。
+5. GitHub README 的 code block 不是可靠的视觉验收环境：浏览器字体 fallback 会让中文、emoji、变体选择符看起来错位。若需要在 GitHub 页面展示“已对齐”的视觉效果，优先提供由已验证数据生成的 SVG/图片预览，并把真实终端文本另存为 `examples/*-output.txt`。
+6. GitHub 图片/SVG 可能被缓存；替换预览时可改文件名（例如 `complex-browser-safe-preview.svg`）或更新引用来避免旧图缓存。
+7. 发布安装说明后，用 fresh clone 到临时目录的方式验证 `git clone`、脚本路径和示例输入都能运行，不要只凭路径推测。
+8. 如果用户指出示例没对齐，立即修正文档示例，并检查是否是复制/打包流程污染了文件内容。
 
 ## 验收清单
 
