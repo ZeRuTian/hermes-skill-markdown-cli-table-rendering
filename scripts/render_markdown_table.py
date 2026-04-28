@@ -58,7 +58,9 @@ def clusters(text: str):
 def cluster_width(cluster: str) -> int:
     if not cluster or all(is_zero_width(ch) for ch in cluster):
         return 0
-    if ZWJ in cluster or "\ufe0f" in cluster or any(is_emojiish(ch) for ch in cluster):
+    # FE0E requests text presentation. Treat it as a normal text glyph so
+    # README/browser-safe examples can avoid emoji fallback misalignment.
+    if "\ufe0e" not in cluster and (ZWJ in cluster or "\ufe0f" in cluster or any(is_emojiish(ch) for ch in cluster)):
         return 2
     width = 0
     for ch in cluster:
